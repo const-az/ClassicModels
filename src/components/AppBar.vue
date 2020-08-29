@@ -72,7 +72,7 @@ export default {
     logout(){
       Firebase.auth().signOut().then( () => {
         this.updateUser(false)
-        this.$router.push('/home')
+        this.$router.push('/ingresa')
       })
     },
     ...mapActions(['updateUser'])
