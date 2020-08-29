@@ -1,20 +1,23 @@
 <template>
   <v-container class="mt-10">
-    <v-card outlined>
-      <Carousel/>
-      <v-card-title>Bienvenido</v-card-title>
-      <v-card-subtitle>Bienvenido al sistema de Órdenes e Inventario de ClassicModels</v-card-subtitle>
-    </v-card>
+    <v-breadcrumbs>
+      <v-breadcrumbs-item href="/home">
+        Home
+      </v-breadcrumbs-item>
+    </v-breadcrumbs>
+    <Carousel/>
     <v-row>
       <v-col cols="12" md="6" v-for="(card, i) in dashboard.kpis" :key="i">
         <v-card outlined>
-          <v-row>
-            <v-col cols="12" md="3" class="text-center pa-5">
-              <v-progress-circular size="70" class="ml-5" v-if="i==0" :value="75"> 75%</v-progress-circular>
-              <v-progress-circular size="70" class="ml-5" v-else :value="2"> 2%</v-progress-circular>
-              <v-btn x-small text class="mt-3" color="primary">Ver detalles</v-btn>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="4" class="text-center justify-center">
+              <v-progress-circular color="success" size="70" v-if="i==0" :value="75"> 75%</v-progress-circular>
+              <v-progress-circular color="success" size="70" v-else :value="2"> 2%</v-progress-circular>
+              <div>
+                <v-btn x-small text class="mt-3" color="primary">Ver detalles</v-btn>
+              </div>
             </v-col>
-            <v-col cols="12" md="9" class="text-center">
+            <v-col cols="12" md="8" class="text-center">
               <p class="font-weight-bold">{{card.nombre}}</p>
               <v-row>
                 <v-col cols="6">

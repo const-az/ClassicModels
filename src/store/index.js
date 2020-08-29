@@ -11,25 +11,30 @@ function getFromStorage(key) {
   return JSON.parse(localStorage.getItem(key))
 }
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/"
-const token = 'QH233JH43HHJ34JHJ3H42OI8F8WE8WEUWE8R'
-const config = { headers: { Authorization: 'Bearer '+token}};
-const BASE_URL = 'http://157.230.190.251/'
-// const BASE_URL = 'https://classicmodels-5ce54.firebaseio.com/'
+// const proxyurl = "https://cors-anywhere.herokuapp.com/"
+// const token = 'QH233JH43HHJ34JHJ3H42OI8F8WE8WEUWE8R'
+// const config = { headers: { Authorization: 'Bearer '+token}};
+// const BASE_URL = 'http://157.230.190.251/'
 
 export default new Vuex.Store({
   state: {
     currentUser: getFromStorage('user') || undefined,
-    dashboard: dashboard
+    dashboard: {},
+    orders: {},
+    offices: [],
+    status: [],
+    details: {},
   },
   mutations: {
     UPDATE_USER(state, user){
       state.currentUser = user
       setInStorage('user', user)
     },
-    SET_DASHBOARD(state, data){
-      state.dashboard = data
-    }
+    SET_DASHBOARD(state, data){ state.dashboard = data},
+    SET_ORDERS(state, data){ state.orders = data},
+    SET_OFFICES(state, data){ state.offices = data.oficinas},
+    SET_STATUS(state, data){ state.status = data.estados},
+    SET_DETAILS(state, data){ state.details = data}
   },
   actions: {
     updateUser({commit}, user){ 
@@ -41,9 +46,46 @@ export default new Vuex.Store({
       })
     },
     getHomeInfo({commit}){
-      axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/dashboard`, config)
+      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/dashboard`, config)
+      axios.get('/api/dashboard.json')
         .then((response) => {
           commit('SET_DASHBOARD', response.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    getOrdersInfo({commit}){
+      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
+      axios.get('/api/ordenes.json')
+        .then((response) => {
+          commit('SET_ORDERS', response.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    getOffices({commit}){
+      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
+      axios.get('/api/oficinas.json')
+        .then((response) => {
+          commit('SET_OFFICES', response.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    getStatus({commit}){
+      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
+      axios.get('/api/estados.json')
+        .then((response) => {
+          commit('SET_STATUS', response.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    getOrderDetails({commit}){
+      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
+      axios.get('/api/detalle_orden.json')
+        .then((response) => {
+          commit('SET_DETAILS', response.data)
       }).catch((error) => {
         console.log(error)
       })
@@ -52,68 +94,3 @@ export default new Vuex.Store({
   modules: {
   }
 })
-
-// DATOS
-
-const dashboard = {
-  "kpis": [
-    {
-      "nombre": "cumplimiento diario de ordenes",
-      "entregadas": "1500",
-      "pendientes": "500"
-    },
-    {
-      "nombre": "Ordenes atrasadas jornada",
-      "totales": "700",
-      "atrasadas": "14"
-    }
-  ],
-  "utimas_ordenes": [
-    {
-      "num_orden": "123446",
-      "cliente": "Multitiendas Sigma SA",
-      "fecha_entrega": "2020-07-20",
-      "estado": "Ingresado"
-    },
-    {
-      "num_orden": "123445",
-      "cliente": "Jugueteria Asimov SpA",
-      "fecha_entrega": "2020-07-20",
-      "estado": "Preparacion"
-    },
-    {
-      "num_orden": "123444",
-      "cliente": "Bazar Don Lalo LTDA",
-      "fecha_entrega": "2020-07-18",
-      "estado": "Preparacion"
-    },
-    {
-      "num_orden": "123443",
-      "cliente": "Claudia Ingrid Romero",
-      "fecha_entrega": "2020-07-18",
-      "estado": "Entregado"
-    }
-  ],
-  "ultimas_devoluciones:": [
-    {
-      "num_orden": "122289",
-      "cliente": "Multi Game SpA",
-      "fecha_entrega": "2020-07-20"
-    },
-    {
-      "num_orden": "122283",
-      "cliente": "Jugueteria Play LTDA",
-      "fecha_entrega": "2020-07-20"
-    },
-    {
-      "num_orden": "122271",
-      "cliente": "Tiendas La Reina SA",
-      "fecha_entrega": "2020-07-18"
-    },
-    {
-      "num_orden": "122232",
-      "cliente": "Ofertas Unicas LTDA",
-      "fecha_entrega": "2020-07-14"
-    }
-  ]
-}

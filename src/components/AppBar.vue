@@ -7,22 +7,23 @@
         </v-toolbar-title>
       </router-link>
       <!-- Desktop -->
-      <v-btn text to="/home" v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small to="/home" v-if="currentUser" class="hidden-sm-and-down">
           Home
       </v-btn>
-      <v-btn text to="/rover" v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small to="/ordenes" v-if="currentUser" class="hidden-sm-and-down">
         Órdenes
       </v-btn>
-      <v-btn text to="/rover" v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small v-if="currentUser" class="hidden-sm-and-down">
         Inventario
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn text to="/rover" v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small v-if="currentUser" class="hidden-sm-and-down">
         Perfil
       </v-btn>
-      <v-btn text v-if="currentUser" class="hidden-sm-and-down" @click="logout">
+      <v-btn text small v-if="currentUser" class="hidden-sm-and-down" @click="logout">
         Cerrar sesión
       </v-btn>
+      <!-- Mobile -->
       <v-menu> 
         <template v-slot:activator="{ attrs, on }">
           <v-btn class="white--text hidden-md-and-up" icon v-bind="attrs" v-on="on" depressed v-if="currentUser">
@@ -31,22 +32,22 @@
         </template>
         <v-list flat elevation="0">
           <div>
-            <v-list-item link to="/apod">
+            <v-list-item link to="/home">
               <v-list-item-title>
                 Home
               </v-list-item-title>
             </v-list-item>
-            <v-list-item link to="/rover">
+            <v-list-item link to="/ordenes">
               <v-list-item-title>
                 Órdenes
               </v-list-item-title>
             </v-list-item>
-            <v-list-item link to="/rover">
+            <v-list-item link>
               <v-list-item-title>
                 Inventario
               </v-list-item-title>
             </v-list-item>
-            <v-list-item link to="/rover">
+            <v-list-item link>
               <v-list-item-title>
                 Perfil
               </v-list-item-title>
