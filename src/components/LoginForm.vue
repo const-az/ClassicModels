@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <!-- Alert on errors -->
-    <v-snackbar elevation="0" top color="red" v-model="alert.state" timeout="3000">
+    <v-snackbar elevation="0" top color="primary" v-model="alert.state" timeout="3000">
       {{ alert.text }}
       <template v-slot:action="{ attrs }">
         <v-btn icon small color="white" v-bind="attrs" @click="alert.state = false">

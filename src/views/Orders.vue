@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-15">
+  <v-container class="my-10">
     <v-breadcrumbs>
       <v-breadcrumbs-item href="/home">
         Home
@@ -29,7 +29,7 @@
           </v-col>
           <v-col cols="12" md="2">
             <v-menu
-              ref="menu"
+              ref="menu1"
               v-model="fechaEntrega"
               :close-on-content-click="false"
               :return-value.sync="dateInicio"
@@ -49,13 +49,13 @@
               <v-date-picker v-model="dateInicio" no-title scrollable>
                 <v-spacer></v-spacer>
                 <v-btn text small color="primary" @click="fechaEntrega = false">Cancelar</v-btn>
-                <v-btn small rounded depressed color="success" @click="$refs.menu.save(dateInicio)">OK</v-btn>
+                <v-btn small rounded depressed color="success" @click="$refs.menu1.save(dateInicio)">OK</v-btn>
               </v-date-picker>
             </v-menu>
           </v-col>
           <v-col cols="12" md="2">
             <v-menu
-              ref="menu"
+              ref="menu2"
               v-model="fechaFin"
               :close-on-content-click="false"
               :return-value.sync="dateFin"
@@ -75,7 +75,7 @@
               <v-date-picker v-model="dateFin" no-title scrollable>
                 <v-spacer></v-spacer>
                 <v-btn text small color="primary" @click="fechaFin = false">Cancelar</v-btn>
-                <v-btn small rounded depressed color="success" @click="$refs.menu.save(dateFin)">OK</v-btn>
+                <v-btn small rounded depressed color="success" @click="$refs.menu2.save(dateFin)">OK</v-btn>
               </v-date-picker>
             </v-menu>
           </v-col>
@@ -84,7 +84,7 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-simple-table>
+      <v-simple-table class="mt-10">
         <template v-slot:default>
           <thead>
             <tr>
@@ -112,7 +112,7 @@
           </tbody>
         </template>
       </v-simple-table>
-      <v-pagination disabled v-model="orders.pagedResult.page" :length="orders.pagedResult.total"></v-pagination>
+      <v-pagination class="mt-5" disabled v-model="orders.pagedResult.page" :length="orders.pagedResult.total"></v-pagination>
     </div>
   </v-container>
 </template>

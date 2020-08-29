@@ -46,7 +46,6 @@ export default new Vuex.Store({
       })
     },
     getHomeInfo({commit}){
-      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/dashboard`, config)
       axios.get('/api/dashboard.json')
         .then((response) => {
           commit('SET_DASHBOARD', response.data)
@@ -55,7 +54,6 @@ export default new Vuex.Store({
       })
     },
     getOrdersInfo({commit}){
-      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
       axios.get('/api/ordenes.json')
         .then((response) => {
           commit('SET_ORDERS', response.data)
@@ -64,7 +62,6 @@ export default new Vuex.Store({
       })
     },
     getOffices({commit}){
-      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
       axios.get('/api/oficinas.json')
         .then((response) => {
           commit('SET_OFFICES', response.data)
@@ -73,7 +70,6 @@ export default new Vuex.Store({
       })
     },
     getStatus({commit}){
-      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
       axios.get('/api/estados.json')
         .then((response) => {
           commit('SET_STATUS', response.data)
@@ -82,7 +78,6 @@ export default new Vuex.Store({
       })
     },
     getOrderDetails({commit}){
-      // axios.get(`${proxyurl}${BASE_URL}api/v1/cmodels/secure/ordenes`, config)
       axios.get('/api/detalle_orden.json')
         .then((response) => {
           commit('SET_DETAILS', response.data)
@@ -91,6 +86,4 @@ export default new Vuex.Store({
       })
     }
   },
-  modules: {
-  }
 })

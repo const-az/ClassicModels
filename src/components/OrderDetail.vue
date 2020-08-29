@@ -22,19 +22,19 @@
         <v-tab-item>
           <v-card flat class="pa-10">
             <v-row>
-              <v-col cols="6">Nª Orden</v-col>
-              <v-col cols="6">{{details.orden.num_orden}}</v-col>
-              <v-col cols="6">Monto Orden</v-col>
-              <v-col cols="6">{{details.orden.monto}}</v-col>
-              <v-col cols="6">Cant. Productos</v-col>
-              <v-col cols="6">{{details.orden.cant_productos}}</v-col>
-              <v-col cols="6">Fecha Entrega</v-col>
-              <v-col cols="6">{{details.orden.fecha_entrega}}</v-col>
-              <v-col cols="6">Vendedor</v-col>
-              <v-col cols="6">{{details.orden.vendedor}}</v-col>
-              <v-col cols="6">Estado</v-col>
-              <v-col cols="6">{{details.orden.estado}}</v-col>
-              <v-col cols="6">Avance preparación</v-col>
+              <v-col cols="6"><p class="text-caption">Nª Orden</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.num_orden}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Monto Orden</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.monto}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Cant. Productos</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.cant_productos}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Fecha Entrega</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.fecha_entrega}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Vendedor</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.vendedor}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Estado</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.orden.estado}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Avance preparación</p></v-col>
               <v-col cols="6"><v-progress-linear class="mt-2" :value="details.orden.avance_preparacion*100"></v-progress-linear></v-col>
             </v-row>
           </v-card>
@@ -42,18 +42,18 @@
         <v-tab-item>
           <v-card flat class="pa-10">
             <v-row>
-              <v-col cols="6">Nombre</v-col>
-              <v-col cols="6">{{details.cliente.nombre}}</v-col>
-              <v-col cols="6">RUT</v-col>
-              <v-col cols="6">{{details.cliente.rut_n}}-{{details.cliente.rut_dv}}</v-col>
-              <v-col cols="6">Dirección de Entrega</v-col>
-              <v-col cols="6">{{details.cliente.direccion_entrega}}</v-col>
-              <v-col cols="6">Contacto</v-col>
-              <v-col cols="6">{{details.cliente.contacto}}</v-col>
-              <v-col cols="6">Fono</v-col>
-              <v-col cols="6">{{details.cliente.fono}}</v-col>
-              <v-col cols="6">Email</v-col>
-              <v-col cols="6">{{details.cliente.email}}</v-col>
+              <v-col cols="6"><p class="text-caption">Nombre</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.nombre}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">RUT</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.rut_n}}-{{details.cliente.rut_dv}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Dirección de Entrega</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.direccion_entrega}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Contacto</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.contacto}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Fono</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.fono}}</p></v-col>
+              <v-col cols="6"><p class="text-caption">Email</p></v-col>
+              <v-col cols="6"><p class="text-caption">{{details.cliente.email}}</p></v-col>
             </v-row>
           </v-card>
         </v-tab-item>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-10">
+  <v-container class="my-10">
     <v-breadcrumbs>
       <v-breadcrumbs-item href="/home">
         Home
@@ -8,7 +8,7 @@
     <Carousel/>
     <v-row>
       <v-col cols="12" md="6" v-for="(card, i) in dashboard.kpis" :key="i">
-        <v-card outlined>
+        <v-card outlined class="pt-2">
           <v-row align="center" justify="center">
             <v-col cols="12" md="4" class="text-center justify-center">
               <v-progress-circular color="success" size="70" v-if="i==0" :value="75"> 75%</v-progress-circular>
@@ -18,7 +18,7 @@
               </div>
             </v-col>
             <v-col cols="12" md="8" class="text-center">
-              <p class="font-weight-bold">{{card.nombre}}</p>
+              <p class="font-weight-bold mt-5">{{card.nombre}}</p>
               <v-row>
                 <v-col cols="6">
                   <p class="text-h4 mb-0">{{card.entregadas || card.totales}}</p>
@@ -34,7 +34,7 @@
         </v-card>
       </v-col>
       <v-col cols="12" lg="6">
-        <p class="text-h5">Últimas órdenes</p>
+        <p class="text-h5 font-weight-bold text-center text-md-left mt-5">Últimas órdenes</p>
         <v-simple-table>
           <template v-slot:default>
             <thead>
@@ -58,7 +58,7 @@
         </v-simple-table>
       </v-col>
       <v-col cols="12" lg="6">
-        <p class="text-h5">Últimas devoluciones</p>
+        <p class="text-h5 font-weight-bold text-center text-md-left mt-5">Últimas devoluciones</p>
         <v-simple-table>
           <template v-slot:default>
             <thead>
@@ -91,7 +91,7 @@ import Carousel from '../components/Carousel'
 export default {
   name: 'Home',
   components: {
-    Carousel
+    Carousel,
   },
   methods: {
     ...mapActions(['getHomeInfo'])
