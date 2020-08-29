@@ -13,11 +13,11 @@
       <v-btn text small to="/ordenes" v-if="currentUser" class="hidden-sm-and-down">
         Órdenes
       </v-btn>
-      <v-btn text small v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small to="/inventario" v-if="currentUser" class="hidden-sm-and-down">
         Inventario
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn text small v-if="currentUser" class="hidden-sm-and-down">
+      <v-btn text small to="/perfil" v-if="currentUser" class="hidden-sm-and-down">
         Perfil
       </v-btn>
       <v-btn text small v-if="currentUser" class="hidden-sm-and-down" @click="logout">
@@ -42,12 +42,12 @@
                 Órdenes
               </v-list-item-title>
             </v-list-item>
-            <v-list-item link>
+            <v-list-item link to="/inventario">
               <v-list-item-title>
                 Inventario
               </v-list-item-title>
             </v-list-item>
-            <v-list-item link>
+            <v-list-item link to="/perfil">
               <v-list-item-title>
                 Perfil
               </v-list-item-title>
